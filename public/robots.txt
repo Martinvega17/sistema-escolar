@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /
+
+/usuarios
+/hoteles
+/huespedes
+/servicios
+/reservaciones
+/habitaciones
