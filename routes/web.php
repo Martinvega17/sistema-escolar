@@ -8,6 +8,7 @@ use App\Http\Controllers\PiscinaController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\HuespedController;
 use App\Http\Controllers\HabitacionController;
+use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
@@ -59,6 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('hoteles/hotel', HotelController::class);
     Route::resource('hoteles/huesped', HuespedController::class);
     Route::resource('hoteles/habitaciones', HabitacionController::class);
+    Route::resource('hoteles/carreras', CarreraController::class);
 });
 
 

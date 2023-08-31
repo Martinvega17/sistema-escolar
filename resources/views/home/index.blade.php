@@ -190,6 +190,14 @@
                                 <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
                             </ul>
                         </li>
+                        <li class="treeview">
+                            <a href="/hoteles/carreras">
+                                <i class="fa fa-bed"></i>
+                                <span>Carreras</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+
+                        </li>
 
                         <li class="treeview">
                             <a href="/logout">

@@ -21,7 +21,7 @@
                 <table class="table table-striped table-bordered table-condensed table-hover" id="datatable" tyle="width:100%">
                             <thead>
                                 
-                                <th>Id</th>
+                                <th>id</th>
                                 <th>Nombre</th>
                                 <th>rfc</th>
                                 <th>direccion</th>
