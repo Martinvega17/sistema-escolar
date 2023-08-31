@@ -25,9 +25,9 @@ use App\Http\Controllers\LogoutController;
 */
 
 //Homepage route
-Route::get('/', function(){
+Route::get('/', function () {
     return view('home/index');
-}); 
+});
 
 // Login routes
 Route::get('/register',  [RegisterController::class, 'show']);
@@ -43,21 +43,24 @@ Route::get('/home',  [HomeController::class, 'index']);
 Route::get('/logout',  [LogoutController::class, 'logout']);
 
 // Auth
-Route::get('/login' , function () {
-    return view ('auth/login');
+Route::get('/login', function () {
+    return view('auth/login');
 })->name('login');
 
 
 
 
 /* Creating views routes: */
-Route::resource('hoteles/categorias', CategoriaController::class); 
-Route::resource('servicios/bar', BarController::class);            
-Route::resource('servicios/restaurant', RestaurantController::class); 
-Route::resource('servicios/piscina', PiscinaController::class);
-Route::resource('hoteles/hotel', HotelController::class);
-Route::resource('hoteles/huesped', HuespedController::class);
-Route::resource('hoteles/habitaciones', HabitacionController::class);
+Route::middleware('auth')->group(function () {
+    Route::resource('hoteles/categorias', CategoriaController::class);
+    Route::resource('servicios/bar', BarController::class);
+    Route::resource('servicios/restaurant', RestaurantController::class);
+    Route::resource('servicios/piscina', PiscinaController::class);
+    Route::resource('hoteles/hotel', HotelController::class);
+    Route::resource('hoteles/huesped', HuespedController::class);
+    Route::resource('hoteles/habitaciones', HabitacionController::class);
+});
+
 
 //Exports
 
@@ -71,8 +74,7 @@ Route::resource('hoteles/habitaciones', HabitacionController::class);
 // ->name('exports.bar.export');
 
 Route::get('/servicios/export', [BarController::class, 'ExportAllServicesofBarPDF'])
-->name('exports.bar.export');
+    ->name('exports.bar.export');
 
 
-
-
+require __DIR__ . '/auth.php';
