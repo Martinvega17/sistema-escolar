@@ -1,9 +1,11 @@
 User-agent: *
-Disallow: /
+Disallow:
 
-/usuarios
-/hoteles
-/huespedes
-/servicios
-/reservaciones
-/habitaciones
+Disallow: /css/
+Disallow: /imagenes/
+Disallow: /hoteles/
+Disallow: /huespedes/
+Disallow: /servicios/
+Disallow: /reservaciones/
+Disallow: /habitaciones/
+

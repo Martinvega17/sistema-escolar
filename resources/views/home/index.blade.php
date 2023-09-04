@@ -9,10 +9,9 @@
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
+    <!-- Bootstrap 4.0.0 -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/font-awesome.css') }}">
-    {{-- <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"> --}}
     <!-- Font Awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/fontawesome.css') }}">
     <link rel="stylesheet" href="{{ url('https://use.fontawesome.com/releases/v6.2.0/css/all.css') }}">
@@ -192,7 +191,7 @@
                         </li>
                         <li class="treeview">
                             <a href="/hoteles/carreras">
-                                <i class="fa fa-bed"></i>
+                                <i class="fa-solid fa-graduation-cap"></i>
                                 <span>Carreras</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -229,7 +228,11 @@
                                     {{-- <script>
                     alert("este texto es el que modificas");
                   </script> --}}
-                                    <h2>Para acceder al contenido debes <a href="/login">iniciar sesion</h2>
+                                    <p class="mt-2 text-lg">Bienvenido(a) al sistema para comenzar presiona el enlace <a
+                                            href="/login">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                            Entrar </a>
+                                        y proporciona tus credenciales de acceso.</p>
                                 @endguest
                                 <div class="box-tools pull-right">
                                     <button class="btn btn-box-tool" data-widget="collapse"><i
@@ -261,7 +264,7 @@
     <!--Fin-Contenido-->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
+            <b>Version</b> 1.0.0
         </div>
         <strong>Copyright &copy; 2019-2023 <a href="https://github.com/Martinvega17/" target="_blanck">Martin Salvador
                 Vega Perez</a>.</strong> All rights reserved.
@@ -269,7 +272,7 @@
 
     <!-- JQuery 3.6.1 -->
     <script src="{{ asset('assets/js/jquery-3.6.1.min.js') }}"></script>
-    <!-- Bootstrap 3.3.5 -->
+    <!-- Bootstrap 4.0.0 -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>

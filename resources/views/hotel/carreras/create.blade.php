@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="imagen">Imagen</label>
-                    <input type="text" name="imagen" class="form-control" placeholder="Disponibilidad...">
+                    <input type="file" name="imagen" class="form-control" placeholder="Disponibilidad...">
                 </div>
 
                 <div class="form-group">
