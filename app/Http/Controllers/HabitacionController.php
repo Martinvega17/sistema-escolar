@@ -19,7 +19,7 @@ class HabitacionController extends Controller
     public function index()
     {
         $habitaciones = Habitacion::orderByDesc('id')->get();
-        return view('hotel.habitacion.index', compact('habitaciones'));
+        return view('sistema.habitacion.index', compact('habitaciones'));
     }
 
     /**
@@ -29,7 +29,7 @@ class HabitacionController extends Controller
      */
     public function create()
     {
-        return view("hotel.habitacion.create");
+        return view("sistema.habitacion.create");
     }
 
     /**
@@ -59,7 +59,7 @@ class HabitacionController extends Controller
      */
     public function show(Habitacion $habitacion)
     {
-        return view("hotel.habitacion.show",['habitacion'=>$habitacion]);
+        return view("sistema.habitacion.show",['habitacion'=>$habitacion]);
 
     }
 
@@ -71,7 +71,7 @@ class HabitacionController extends Controller
      */
     public function edit(Habitacion $habitacion)
     {
-        return view('hotel.habitacion.edit', compact('habitacion'));
+        return view('sistema.habitacion.edit', compact('habitacion'));
 
     }
 

@@ -22,7 +22,7 @@ class HotelController extends Controller
     public function index()
     {
         $hoteles = Hotel::orderByDesc('id')->get();
-        return view('hotel.index', compact('hoteles'));
+        return view('sistema.index', compact('hoteles'));
     }
 
     /**
@@ -32,7 +32,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        return view("hotel.create");
+        return view("sistema.create");
     }
 
     /**
@@ -51,7 +51,7 @@ class HotelController extends Controller
          
         ]);
         $id = Hotel::create($datos );
-        return redirect()->route('hotel.index');
+        return redirect()->route('sistema.index');
     }
 
     /**
@@ -62,7 +62,7 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        return view("hotel.show",['hotel'=>$hotel]);
+        return view("sistema.show",['hotel'=>$hotel]);
 
     }
 
@@ -74,7 +74,7 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        return view('hotel.edit', compact('hotel'));
+        return view('sistema.edit', compact('hotel'));
 
     }
 
@@ -96,7 +96,7 @@ class HotelController extends Controller
 
         ]);
         $hotel->update($request->all());
-        return redirect()->route('hotel.index');
+        return redirect()->route('sistema.index');
     }
 
     /**

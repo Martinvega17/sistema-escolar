@@ -9,8 +9,9 @@ class CarreraController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index']]);
-
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,7 @@ class CarreraController extends Controller
     public function index()
     {
         $carreras = Carrera::orderByDesc('id')->get();
-        return view('hotel.carreras.index', compact('carreras'));
+        return view('sistema.carreras.index', compact('carreras'));
     }
 
     /**
@@ -29,7 +30,7 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        return view("hotel.carreras.create");
+        return view("sistema.carreras.create");
     }
 
     /**
@@ -44,7 +45,7 @@ class CarreraController extends Controller
             'nombre' => 'required',
             'clave' => 'required',
             'descripcion' => 'required',
-            'imagen' => 'required',
+            'imagen' => 'nullable',
          
         ]);
         $id = Carrera::create($datos );
@@ -59,10 +60,11 @@ class CarreraController extends Controller
      */
     public function show(Carrera $carrera)
     {
-        return view("hotel.carreras.show",['carrera'=>$carrera]);
+        return view("sistema.carreras.show",['carrera'=>$carrera]);
 
     }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -71,7 +73,7 @@ class CarreraController extends Controller
      */
     public function edit(Carrera $carrera)
     {
-        return view('hotel.carreras.edit', compact('carrera'));
+        return view('sistema.carreras.edit', compact('carrera'));
 
     }
 
@@ -88,7 +90,6 @@ class CarreraController extends Controller
             'nombre' => 'required',
             'clave' => 'required',
             'descripcion' => 'required',
-            'imagen' => 'required',
         
 
         ]);

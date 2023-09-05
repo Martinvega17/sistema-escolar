@@ -18,13 +18,13 @@ class CategoriaController extends Controller
     public function index()
     {
     $categorias = Categoria::orderByDesc('id')->get();
-    return view('hotel.categoria.index', compact('categorias'));
+    return view('sistema.categoria.index', compact('categorias'));
         
 
     }
     public function create()
     {
-        return view("hotel.categoria.create");
+        return view("sistema.categoria.create");
         
     }
     public function store(Request $request)
@@ -41,12 +41,12 @@ class CategoriaController extends Controller
     }
     public function show(Categoria $categoria)
     {
-        return view("hotel.categoria.show",['categoria'=>$categoria]);
+        return view("sistema.categoria.show",['categoria'=>$categoria]);
         
     }
     public function edit(Categoria $categoria)
     {
-        return view('hotel.categoria.edit', compact('categoria'));
+        return view('sistema.categoria.edit', compact('categoria'));
 
         
     }

@@ -56,35 +56,6 @@
 
 
                         @auth
-
-
-                            <!-- User Account: style can be found in dropdown.less -->
-                            {{--  <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
-                  <span class="hidden-xs">{{auth()->user()->name ?? auth()->user()->username}}</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    
-                    <p>
-                      www.incanatoit.com - Desarrollando Software
-                      <small>www.youtube.com/jcarlosad7</small>
-                    </p>
-                  </li> 
-                  
-                  
-                  <!-- Menu Footer-->
-                   <li class="user-footer">
-                    
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
-                    </div>
-                  </li>
-                </ul>
-              </li> --}}
-
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -100,7 +71,6 @@
                             </li>
 
                         @endauth
-
 
             </nav>
         </header>
@@ -134,7 +104,7 @@
 
                         </li>
                         <li class="treeview">
-                            <a href="/hoteles/huesped">
+                            <a href="/sistema/huesped">
                                 <i class="fa fa-user-plus"></i>
                                 <span>Añadir huesped</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -149,16 +119,16 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/hoteles/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                                <li><a href="/sistema/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
                             </ul>
                             <ul class="treeview-menu">
-                                <li><a href="/hoteles/hotel"><i class="fa fa-circle-o"></i> Hoteles</a></li>
+                                <li><a href="/sistema/hotel"><i class="fa fa-circle-o"></i> Hoteles</a></li>
                             </ul>
 
                         </li>
 
                         <li class="treeview">
-                            <a href="/hoteles/habitaciones">
+                            <a href="/sistema/habitaciones">
                                 <i class="fa fa-bed"></i>
                                 <span>Habitaciones</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -190,7 +160,7 @@
                             </ul>
                         </li>
                         <li class="treeview">
-                            <a href="/hoteles/carreras">
+                            <a href="/sistema/carreras">
                                 <i class="fa-solid fa-graduation-cap"></i>
                                 <span>Carreras</span>
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -225,15 +195,15 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">Sistema de control Escolar</h3>
                                 <p>Este parrafo es publico</p>
-                                
+
                                 @role('maestro')
-                                <p>Solo profesor</p>
+                                    <p>Solo profesor</p>
                                 @endrole
                                 @role('alumno')
-                                <p>solo alumno</p>
+                                    <p>solo alumno</p>
                                 @endrole
                                 @role('admin')
-                                <p>solo administrador</p>
+                                    <p>solo administrador</p>
                                 @endrole
                                 @guest
                                     {{-- <script>

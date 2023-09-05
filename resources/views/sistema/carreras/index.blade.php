@@ -40,7 +40,7 @@
                                     <td>{{ $carrera->descripcion }}</td>
                                     <td>{{ $carrera->imagen }}</td>
                                     <td>
-
+                                            
                                         <a href="{{ route('carreras.edit', $carrera->id) }}"><button
                                                 class="btn btn-info">Editar</button></a>
                                         <a href="{{ route('carreras.show', $carrera->id) }}"><button

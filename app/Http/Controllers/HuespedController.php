@@ -21,7 +21,7 @@ class HuespedController extends Controller
     public function index()
     {
         $huespedes = Huesped::orderByDesc('id')->get();
-        return view('hotel.huesped.index', compact('huespedes'));
+        return view('sistema.huesped.index', compact('huespedes'));
     }
 
     /**

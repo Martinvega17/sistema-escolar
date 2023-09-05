@@ -13,6 +13,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,31 +54,38 @@ Route::get('/login', function () {
 
 /* Creating views routes: */
 Route::middleware('auth')->group(function () {
-    Route::resource('hoteles/categorias', CategoriaController::class);
+    Route::resource('sistema/categorias', CategoriaController::class);
     Route::resource('servicios/bar', BarController::class);
     Route::resource('servicios/restaurant', RestaurantController::class);
     Route::resource('servicios/piscina', PiscinaController::class);
-    Route::resource('hoteles/hotel', HotelController::class);
-    Route::resource('hoteles/huesped', HuespedController::class);
-    Route::resource('hoteles/habitaciones', HabitacionController::class);
-    Route::resource('hoteles/carreras', CarreraController::class);
+    Route::resource('sistema/hotel', HotelController::class);
+    Route::resource('sistema/huesped', HuespedController::class);
+    Route::resource('sistema/habitaciones', HabitacionController::class);
+    Route::resource('sistema/carreras', CarreraController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 });
 
 
-//Exports
+
+//Users
+
+Route::group(['middleware' => ['role:admin']], function () {
+    // Rutas para admin
+    Route::get('sistema/carreras/create', [App\Http\Controllers\CarreraController::class, 'create'])->name('carreras.create');
+    Route::get('sistema/carreras/edit', [App\Http\Controllers\CarreraController::class, 'edit'])->name('sistema.carreras.edit');
+});
+
+Route::group(['middleware' => ['role:maestro']], function () {
+    // Rutas para maestro
+    Route::get('sistema/carreras/edit', [App\Http\Controllers\CarreraController::class, 'edit'])->name('sistema.carreras.edit');
+});
 
 
-/* Route::get('/export' , function () {
-    $baresExport = new BaresExport;
-    return $baresExport->download('bares.pdf');
-}); */
 
-// Route::get('/servicios/export', [BarController::class, 'ExportAllServicesofBarExcel'])
-// ->name('exports.bar.export');
 
-Route::get('/servicios/export', [BarController::class, 'ExportAllServicesofBarPDF'])
-    ->name('exports.bar.export');
+
+
+
 
 
 require __DIR__ . '/auth.php';
