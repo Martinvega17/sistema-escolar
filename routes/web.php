@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('hoteles/huesped', HuespedController::class);
     Route::resource('hoteles/habitaciones', HabitacionController::class);
     Route::resource('hoteles/carreras', CarreraController::class);
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 });
 
 

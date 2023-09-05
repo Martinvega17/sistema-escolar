@@ -224,6 +224,17 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Sistema de control Escolar</h3>
+                                <p>Este parrafo es publico</p>
+                                
+                                @role('maestro')
+                                <p>Solo profesor</p>
+                                @endrole
+                                @role('alumno')
+                                <p>solo alumno</p>
+                                @endrole
+                                @role('admin')
+                                <p>solo administrador</p>
+                                @endrole
                                 @guest
                                     {{-- <script>
                     alert("este texto es el que modificas");
