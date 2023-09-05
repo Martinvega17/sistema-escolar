@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Huesped;
+use App\Models\Profesor;
 use Illuminate\Http\Request;
 
-class HuespedController extends Controller
+class ProfesorController extends Controller
 {
 
     public function __construct()
@@ -20,8 +20,8 @@ class HuespedController extends Controller
      */
     public function index()
     {
-        $huespedes = Huesped::orderByDesc('id')->get();
-        return view('sistema.huesped.index', compact('huespedes'));
+        $profesores = Profesor::orderByDesc('id')->get();
+        return view('sistema.profesor.index', compact('profesores'));
     }
 
     /**
@@ -31,7 +31,7 @@ class HuespedController extends Controller
      */
     public function create()
     {
-        return view("hotel.huesped.create");
+        return view("sistema.profesor.create");
     }
 
     /**
@@ -44,45 +44,49 @@ class HuespedController extends Controller
     {
        /* Validating the data that is being sent to the database. */
         $datos = $request->validate ([
-            'nombres' => 'required',
+            'nombre' => 'required',
+            'email' => 'required',
             'cedula' => 'required',
             'direccion' => 'required',
-            'celular' => 'required',
-            'email' => 'required',
+            'telefono' => 'required',
+            'experiencia' => 'required',
+            'fecha_contratacion' => 'required',
+
+
             
             
         ]);
         /* Creating a new Huesped object and then redirecting to the index page. */
-        $id = Huesped::create($datos );
-        return redirect()->route('huesped.index');
+        $id = Profesor::create($datos );
+        return redirect()->route('profesor.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Huesped  $huesped
+     * @param  \App\Models\Profesor  $profesor
      * @return \Illuminate\Http\Response
      */
-    public function show(Huesped $huesped)
+    public function show(Profesor $profesor)
     {
         /* Returning the view of the show page. */
-        return view("huesped.show",['huesped'=>$huesped]);
+        return view("sistema.profesor.show",['profesor'=>$profesor]);
 
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Huesped  $huesped
+     * @param  \App\Models\Profesor  $huesped
      * @return \Illuminate\Http\Response
      */
   /**
-   * @param Huesped huesped The Huesped model instance that should be edited.
+   * @param Profesor huesped The Huesped model instance that should be edited.
    */
-    public function edit(Huesped $huesped)
+    public function edit(Profesor $profesor)
     {
 /* Returning the view of the edit page. */
-        return view('hotel.huesped.edit', compact('huesped'));
+        return view('sistema.profesor.edit', compact('profesor'));
 
     }
 
@@ -94,24 +98,23 @@ class HuespedController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, Huesped $huesped)
+    public function update(Request $request, Profesor $profesor)
     {
        /* Validating the data that is being sent to the database. */
         $request->validate ([
-            'nombres' => 'required',
-            'cedula' => 'required',
-            'celular' => 'required',
+            'nombre' => 'required',
             'email' => 'required',
+            'direccion' => 'required',
         ]);
-       /* Updating the huesped object with the new data and then redirecting to the index page. */
-        $huesped->update($request->all());
-        return redirect()->route('huesped.index');
+       /* Updating the profesor object with the new data and then redirecting to the index page. */
+        $profesor->update($request->all());
+        return redirect()->route('profesor.index');
     }
 
-    public function destroy(Huesped $huesped)
+    public function destroy(Profesor $profesor)
     {
-        /* Deleting the huesped object and then redirecting to the index page. */
-        $huesped->delete();
-        return redirect()->route('huesped.index');
+        /* Deleting the profesor object and then redirecting to the index page. */
+        $profesor->delete();
+        return redirect()->route('profesor.index');
     }
 }

@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Huesped extends Model
+class Profesor extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $table='huespedes';
+    protected $table='profesores';
 
     protected $primaryKey ='id';
 
@@ -18,12 +18,14 @@ class Huesped extends Model
 
 
     protected $fillable = [
-        'nombres',
-        'cedula',
-        'direccion',
-        'celular',
+        'nombre',
         'email',
-        'habitacion_id',
+        'telefono',
+        'direccion',
+        'cedula',
+        'experiencia',
+        'fecha_contratacion',
+       
     
     ];
 

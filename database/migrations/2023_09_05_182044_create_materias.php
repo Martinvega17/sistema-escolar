@@ -13,18 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('carreras', function (Blueprint $table) {
+        Schema::create('materias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('clave')->unique();
-            $table->string('descripcion')->nullable();
-            
-            /* $table->unsignedBigInteger('materia_id');
-            $table->foreign('materia_id')
-                ->references('id')->on('materias')
-                ->onDelete('cascade'); */
+            $table->string('codigo')->unique();
+            $table->integer('creditos')->nullable();
+            $table->string('descripcion');
+
+                $table->unsignedInteger('carrera_id')->references('id')->on('carreras')->onDelete('cascade');
+                $table->unsignedInteger('profesor_id')->references('id')->on('profesores')->onDelete('cascade');
 
             $table->timestamps();
+
         });
     }
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema:: dropIfExists ('carreras');
+        Schema::dropIfExists('materias');
     }
 };

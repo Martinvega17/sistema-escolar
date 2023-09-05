@@ -104,10 +104,10 @@
 
                         </li>
                         <li class="treeview">
-                            <a href="/sistema/huesped">
+                            <a href="/sistema/profesor">
                                 <i class="fa fa-user-plus"></i>
-                                <span>Añadir huesped</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                <span>Añadir Profesor</span>
+                                
                             </a>
 
                         </li>
@@ -163,7 +163,7 @@
                             <a href="/sistema/carreras">
                                 <i class="fa-solid fa-graduation-cap"></i>
                                 <span>Carreras</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                
                             </a>
 
                         </li>

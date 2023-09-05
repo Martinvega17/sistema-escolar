@@ -6,7 +6,7 @@ use App\Http\Controllers\BarController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\PiscinaController;
 use App\Http\Controllers\HotelController;
-use App\Http\Controllers\HuespedController;
+use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\HabitacionController;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\RegisterController;
@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('servicios/restaurant', RestaurantController::class);
     Route::resource('servicios/piscina', PiscinaController::class);
     Route::resource('sistema/hotel', HotelController::class);
-    Route::resource('sistema/huesped', HuespedController::class);
+    Route::resource('sistema/profesor', ProfesorController::class);
     Route::resource('sistema/habitaciones', HabitacionController::class);
     Route::resource('sistema/carreras', CarreraController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
@@ -67,25 +67,5 @@ Route::middleware('auth')->group(function () {
 
 
 
-//Users
-
-Route::group(['middleware' => ['role:admin']], function () {
-    // Rutas para admin
-    Route::get('sistema/carreras/create', [App\Http\Controllers\CarreraController::class, 'create'])->name('carreras.create');
-    Route::get('sistema/carreras/edit', [App\Http\Controllers\CarreraController::class, 'edit'])->name('sistema.carreras.edit');
-});
-
-Route::group(['middleware' => ['role:maestro']], function () {
-    // Rutas para maestro
-    Route::get('sistema/carreras/edit', [App\Http\Controllers\CarreraController::class, 'edit'])->name('sistema.carreras.edit');
-});
-
-
-
-
-
-
-
-
-
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin.php';

@@ -2,11 +2,11 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Huesped</h3>
+			<h3>Editar Profesor</h3>
 
-			<form action="{{ route('huesped.update', $huesped) }}"  method="POST" >
+			<form action="{{ route('profesor.update', $profesor) }}"  method="POST" >
 				@method('put')
-				<x-huesped-form :huesped="$huesped"/>
+				<x-profesor-form :profesor="$profesor"/>
 
 			
 			</form>  
