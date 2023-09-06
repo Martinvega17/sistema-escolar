@@ -2,12 +2,12 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Editar Hotel</h3>
+			<h3>Editar Materias</h3>
 
-			<form action="{{ route('hotel.update', $hotel) }}"  method="POST" >
+			<form action="{{ route('materias.update', $materia) }}"  method="POST" >
 				@csrf
 				@method('put')
-				<x-hotel-form :hotel="$hotel"/>
+				<x-materia-form :materia="$materia"/>
 
 			
 			</form>  

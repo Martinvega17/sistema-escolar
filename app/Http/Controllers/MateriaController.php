@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Habitacion;
+use App\Models\Materia;
 use Illuminate\Http\Request;
 
-class HabitacionController extends Controller
+class MateriaController extends Controller
 {
     public function __construct()
     {
@@ -18,8 +18,8 @@ class HabitacionController extends Controller
      */
     public function index()
     {
-        $habitaciones = Habitacion::orderByDesc('id')->get();
-        return view('sistema.habitacion.index', compact('habitaciones'));
+        $materias = Materia::orderByDesc('id')->get();
+        return view('sistema.materias.index', compact('materias'));
     }
 
     /**
@@ -29,7 +29,7 @@ class HabitacionController extends Controller
      */
     public function create()
     {
-        return view("sistema.habitacion.create");
+        return view("sistema.materias.create");
     }
 
     /**
@@ -41,25 +41,27 @@ class HabitacionController extends Controller
     public function store(Request $request)
     {
         $datos = $request->validate ([
-            'hotel' => 'required',
-            'n_habitaciones' => 'required',
-            'camas' => 'required',
-            'celular' => 'required',
-         
+            'nombre' => 'required',
+            'codigo' => 'required',
+            'creditos' => 'required',
+            'descripcion' => 'required',
+            'carrera_id' => 'nullable',
+            'profesor_id' => 'nullable',
+
         ]);
-        $id = Habitacion::create($datos );
-        return redirect()->route('habitacion.index');
+        $id = Materia::create($datos );
+        return redirect()->route('materias.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Habitacion  $habitacion
+     * @param  \App\Models\Materia  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Habitacion $habitacion)
+    public function show(Materia $materia)
     {
-        return view("sistema.habitacion.show",['habitacion'=>$habitacion]);
+        return view("sistema.materias.show",['materia'=>$materia]);
 
     }
 
@@ -69,9 +71,9 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Habitacion $habitacion)
+    public function edit(Materia $materia)
     {
-        return view('sistema.habitacion.edit', compact('habitacion'));
+        return view('sistema.materias.edit', compact('materia'));
 
     }
 
@@ -82,18 +84,20 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Habitacion $hotel)
+    public function update(Request $request, Materia $materia)
     {
         $request->validate ([
-            'titulo' => 'required',
-            'rfc' => 'required',
-            'direccion' => 'required',
-            'celular' => 'required',
+            'nombre' => 'required',
+            'codigo' => 'required',
+            'creditos' => 'required',
+            'descripcion' => 'required',
+            'carrera_id' => 'nullable',
+            'profesor_id' => 'nullable',
         
 
         ]);
-        $hotel->update($request->all());
-        return redirect()->route('habitacion.index');
+        $materia->update($request->all());
+        return redirect()->route('materias.index');
     }
 
     /**
@@ -102,9 +106,9 @@ class HabitacionController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Habitacion $habitacion)
+    public function destroy(Materia $materia)
     {
-        $habitacion->delete();
-        return redirect()->route('habitacion.index');
+        $materia->delete();
+        return redirect()->route('materias.index');
     }
 }

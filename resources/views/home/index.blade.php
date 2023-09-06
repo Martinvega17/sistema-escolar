@@ -128,9 +128,9 @@
                         </li>
 
                         <li class="treeview">
-                            <a href="/sistema/habitaciones">
-                                <i class="fa fa-bed"></i>
-                                <span>Habitaciones</span>
+                            <a href="/sistema/materias">
+                                <i class="fa-solid fa-book"></i>
+                                <span>Materias</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
 
@@ -200,7 +200,7 @@
                                     <p>Solo profesor</p>
                                 @endrole
                                 @role('alumno')
-                                    <p>solo alumno</p>
+                                    <p>Este acceso es publico</p>
                                 @endrole
                                 @role('admin')
                                     <p>solo administrador</p>

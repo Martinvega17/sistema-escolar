@@ -7,7 +7,7 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\PiscinaController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfesorController;
-use App\Http\Controllers\HabitacionController;
+use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CarreraController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('servicios/piscina', PiscinaController::class);
     Route::resource('sistema/hotel', HotelController::class);
     Route::resource('sistema/profesor', ProfesorController::class);
-    Route::resource('sistema/habitaciones', HabitacionController::class);
+    Route::resource('sistema/materias', MateriaController::class);
     Route::resource('sistema/carreras', CarreraController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 });

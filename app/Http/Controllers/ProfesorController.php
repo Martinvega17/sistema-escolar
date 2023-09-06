@@ -11,6 +11,7 @@ class ProfesorController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
 
     }
     /**

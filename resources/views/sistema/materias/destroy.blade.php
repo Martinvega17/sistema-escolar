@@ -1,6 +1,6 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal-delete-{{$hotel->id}}">
-	<form method ="DELETE" action="{{url('HotelController@destroy', $hotel->id)}}">
+role="dialog" tabindex="-1" id="modal-delete-{{$materia->id}}">
+	<form method ="DELETE" action="{{url('MateriaController@destroy', $materia->id)}}">
 	@csrf
 	<div class="modal-dialog">
 		<div class="modal-content">
