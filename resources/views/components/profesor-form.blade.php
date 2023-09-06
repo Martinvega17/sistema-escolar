@@ -1,3 +1,4 @@
+@props(['profesor', 'materias'])
 @csrf	
 <div class="form-group">
     <label for="nombre">Nombre</label>
@@ -27,6 +28,16 @@
     <label for="fecha_contratacion">Fecha de Contratacion</label>
     <input type="date" name="fecha_contratacion" class="form-control" placeholder="Fecha de Contratacion..." value="{{ old('imagen', $profesor->fecha_contratacion) }}">
 </div>
+<div class="form-group">
+    <label for="materia_id">Materia</label>
+    <select name="materia_id" class="form-control">
+        <option value="">Seleccione una materia</option>
+        @foreach($materias as $materia)
+            <option value="{{ $materia->id }}" {{ $materia->id == $profesor->materia_id ? 'selected' : '' }}>{{ $materia->nombre }}</option>
+        @endforeach
+    </select>
+</div>
+
 <div class="form-group">
     <button class="btn btn-primary" type="submit">Guardar</button>
     <input class="btn btn-success"type="button" onclick="history.back()" name="Regresar" value="Regresar">

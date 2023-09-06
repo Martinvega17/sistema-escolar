@@ -23,6 +23,8 @@
                         <th>Cedula</th>
                         <th>Experiencia</th>
                         <th>Fecha de Contratacion</th>
+                        <th>Materias </th>
+                        <th>Profesor </th>
                         
                         <th>Opciones</th>
                     </thead>
@@ -37,8 +39,9 @@
                         <td>{{ $profesor->cedula}}</td>
                         <td>{{ $profesor->experiencia}}</td>
                         <td>{{ $profesor->fecha_contratacion}}</td>
+                        <td>{{ $profesor->materia_id }}
                         
-                        <td>{{ $profesor->habitacion_id}}</td>
+                        <td>{{ $profesor->profesor_id}}</td>
                         
                         <td>                    
                             <a  href="{{route('profesor.edit', $profesor->id) }}" ><button class="btn btn-info">Editar</button></a>

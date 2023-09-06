@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profesor;
+use App\Models\Materia;
 use Illuminate\Http\Request;
 
 class ProfesorController extends Controller
@@ -32,7 +33,9 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        return view("sistema.profesor.create");
+        $materias = Materia::all(); // Obtén todas las materias
+        return view('sistema.profesor.create', compact('materias'));
+        // return view("sistema.profesor.create");
     }
 
     /**
@@ -84,12 +87,14 @@ class ProfesorController extends Controller
   /**
    * @param Profesor huesped The Huesped model instance that should be edited.
    */
-    public function edit(Profesor $profesor)
-    {
-/* Returning the view of the edit page. */
-        return view('sistema.profesor.edit', compact('profesor'));
+  public function edit($id)
+  {
+    $profesor = Profesor::find($id); // Obtén el profesor que deseas editar
+    $materias = Materia::all(); // Obtén todas las materias disponibles
 
-    }
+    return view('sistema.profesor.edit', compact('materias', 'profesor'));
+  }
+  
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +111,9 @@ class ProfesorController extends Controller
             'nombre' => 'required',
             'email' => 'required',
             'direccion' => 'required',
+            'materia_id' => 'required',
         ]);
+         
        /* Updating the profesor object with the new data and then redirecting to the index page. */
         $profesor->update($request->all());
         return redirect()->route('profesor.index');

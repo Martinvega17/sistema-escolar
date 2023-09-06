@@ -6,7 +6,8 @@
 
 			<form action="{{ route('profesor.update', $profesor) }}"  method="POST" >
 				@method('put')
-				<x-profesor-form :profesor="$profesor"/>
+				<x-profesor-form :profesor="$profesor" :materias="$materias" />
+
 
 			
 			</form>  
