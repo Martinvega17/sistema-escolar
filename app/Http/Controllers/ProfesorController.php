@@ -13,7 +13,6 @@ class ProfesorController extends Controller
     {
         $this->middleware('auth', ['except' => ['index']]);
         $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
-
     }
     /**
      * Display a listing of the resource.
@@ -46,8 +45,8 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-       /* Validating the data that is being sent to the database. */
-        $datos = $request->validate ([
+        /* Validating the data that is being sent to the database. */
+        $datos = $request->validate([
             'nombre' => 'required',
             'email' => 'required',
             'cedula' => 'required',
@@ -55,13 +54,18 @@ class ProfesorController extends Controller
             'telefono' => 'required',
             'experiencia' => 'required',
             'fecha_contratacion' => 'required',
-
-
-            
-            
+            'materia_id' => 'required', // Asegúrate de incluir materia_id en la validación
         ]);
         /* Creating a new Huesped object and then redirecting to the index page. */
-        $id = Profesor::create($datos );
+        // Crear un nuevo profesor con los datos del formulario
+        $profesor = Profesor::create($datos);
+
+        // Guardar la relación con la materia
+        $profesor->materia_id = $request->input('materia_id');
+        $profesor->save();
+
+        return redirect()->route('profesor.index');
+        $id = Profesor::create($datos);
         return redirect()->route('profesor.index');
     }
 
@@ -74,8 +78,7 @@ class ProfesorController extends Controller
     public function show(Profesor $profesor)
     {
         /* Returning the view of the show page. */
-        return view("sistema.profesor.show",['profesor'=>$profesor]);
-
+        return view("sistema.profesor.show", ['profesor' => $profesor]);
     }
 
     /**
@@ -84,17 +87,17 @@ class ProfesorController extends Controller
      * @param  \App\Models\Profesor  $huesped
      * @return \Illuminate\Http\Response
      */
-  /**
-   * @param Profesor huesped The Huesped model instance that should be edited.
-   */
-  public function edit($id)
-  {
-    $profesor = Profesor::find($id); // Obtén el profesor que deseas editar
-    $materias = Materia::all(); // Obtén todas las materias disponibles
+    /**
+     * @param Profesor huesped The Huesped model instance that should be edited.
+     */
+    public function edit($id)
+    {
+        $profesor = Profesor::find($id); // Obtén el profesor que deseas editar
+        $materias = Materia::all(); // Obtén todas las materias disponibles
 
-    return view('sistema.profesor.edit', compact('materias', 'profesor'));
-  }
-  
+        return view('sistema.profesor.edit', compact('materias', 'profesor'));
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -106,18 +109,22 @@ class ProfesorController extends Controller
 
     public function update(Request $request, Profesor $profesor)
     {
-       /* Validating the data that is being sent to the database. */
-        $request->validate ([
+        /* Validating the data that is being sent to the database. */
+        $request->validate([
             'nombre' => 'required',
             'email' => 'required',
             'direccion' => 'required',
+            'experiencia'=> 'required',
+            'fecha_contratacion' => 'required',
             'materia_id' => 'required',
         ]);
-         
-       /* Updating the profesor object with the new data and then redirecting to the index page. */
+
+        /* Updating the profesor object with the new data, including materia_id, and then redirecting to the index page. */
         $profesor->update($request->all());
+
         return redirect()->route('profesor.index');
     }
+
 
     public function destroy(Profesor $profesor)
     {

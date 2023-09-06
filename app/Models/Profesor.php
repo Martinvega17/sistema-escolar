@@ -25,6 +25,7 @@ class Profesor extends Model
         'cedula',
         'experiencia',
         'fecha_contratacion',
+        'materia_id'
        
     
     ];

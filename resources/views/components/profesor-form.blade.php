@@ -1,5 +1,5 @@
 @props(['profesor', 'materias'])
-@csrf	
+@csrf
 <div class="form-group">
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" class="form-control" placeholder="Nombre..." value="{{ old('nombre', $profesor->nombre) }}">
@@ -22,7 +22,7 @@
 </div>
 <div class="form-group">
     <label for="experiencia">Experiencia</label>
-    <input type="number" name="experiencia" class="form-control" placeholder="Experiencia..." value="{{ old('imagen', $profesor->experiencia) }}">
+    <input type="number" name="experiencia" class="form-control" placeholder="Experiencia..." value="{{ old('experiencia', $profesor->experiencia) }}">
 </div>
 <div class="form-group">
     <label for="fecha_contratacion">Fecha de Contratacion</label>
@@ -33,12 +33,15 @@
     <select name="materia_id" class="form-control">
         <option value="">Seleccione una materia</option>
         @foreach($materias as $materia)
-            <option value="{{ $materia->id }}" {{ $materia->id == $profesor->materia_id ? 'selected' : '' }}>{{ $materia->nombre }}</option>
+            <option value="{{ $materia->id }}" {{ $materia->id == $profesor->materia_id ? 'selected' : '' }}>
+                {{ $materia->nombre }}
+            </option>
         @endforeach
     </select>
 </div>
 
+
 <div class="form-group">
     <button class="btn btn-primary" type="submit">Guardar</button>
-    <input class="btn btn-success"type="button" onclick="history.back()" name="Regresar" value="Regresar">
+    <input class="btn btn-success" type="button" onclick="history.back()" name="Regresar" value="Regresar">
 </div>

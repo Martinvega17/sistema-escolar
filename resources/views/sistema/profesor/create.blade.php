@@ -49,8 +49,6 @@
 
 
 
-
-
 <div class="form-group">
     <button class="btn btn-primary" type="submit">Guardar</button>
     <input class="btn btn-success"type="button" onclick="history.back()" name="Regresar" value="Regresar">
