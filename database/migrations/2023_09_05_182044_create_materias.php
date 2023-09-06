@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('materias', function (Blueprint $table) {
@@ -19,20 +14,14 @@ return new class extends Migration
             $table->string('codigo')->unique();
             $table->integer('creditos')->nullable();
             $table->string('descripcion');
-
-                $table->unsignedInteger('carrera_id')->references('id')->on('carreras')->onDelete('cascade');
-                $table->unsignedInteger('profesor_id')->references('id')->on('profesores')->onDelete('cascade');
-
+            $table->unsignedBigInteger('carrera_id'); // Carrera a la que pertenece la materia
+            $table->foreign('carrera_id')
+                ->references('id')->on('carreras')
+                ->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('materias');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Materia;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 
 class MateriaController extends Controller
@@ -9,6 +10,7 @@ class MateriaController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
 
     }
     /**
@@ -29,7 +31,9 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        return view("sistema.materias.create");
+        $materias = Materia::all(); // Obtén todas las carreras
+        return view('sistema.materias.create', compact('materias'));
+        // return view("sistema.materias.create");
     }
 
     /**
