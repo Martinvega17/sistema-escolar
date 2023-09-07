@@ -26,11 +26,22 @@
 </div>
 <div class="form-group">
     <label for="carrera_id">Carrera</label>
-    <input type="text" name="carrera_id" class="form-control" placeholder="Carrera..." >
+    <select name="carrera_id" class="form-control">
+        <option value="">Seleccione una carrera</option>
+        @foreach($carreras as $carrera)
+            <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>
+        @endforeach
+    </select>
 </div>
+
 <div class="form-group">
     <label for="profesor_id">Profesor</label>
-    <input type="text" name="profesor_id" class="form-control" placeholder="Profesor..." >
+    <select name="profesor_id" class="form-control">
+        <option value="">Seleccione un profesor</option>
+        @foreach($profesores as $profesor)
+            <option value="{{ $profesor->id }}">{{ $profesor->nombre }}</option>
+        @endforeach
+    </select>
 </div>
 
 <div class="form-group">

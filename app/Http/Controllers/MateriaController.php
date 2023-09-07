@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Materia;
 use App\Models\Carrera;
+use App\Models\Profesor;
 use Illuminate\Http\Request;
 
 class MateriaController extends Controller
@@ -20,7 +21,7 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        $materias = Materia::orderByDesc('id')->get();
+        $materias = Materia::with('carrera', 'profesor')->orderByDesc('id')->get();
         return view('sistema.materias.index', compact('materias'));
     }
 
@@ -31,9 +32,9 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        $materias = Materia::all(); // Obtén todas las carreras
-        return view('sistema.materias.create', compact('materias'));
-        // return view("sistema.materias.create");
+        $profesores = Profesor::all(); // Obtén todas las materias
+        $carreras = Carrera::all(); // Obtén todas las carreras
+        return view('sistema.materias.create', compact('profesores', 'carreras'));
     }
 
     /**
@@ -49,8 +50,8 @@ class MateriaController extends Controller
             'codigo' => 'required',
             'creditos' => 'required',
             'descripcion' => 'required',
-            'carrera_id' => 'nullable',
-            'profesor_id' => 'nullable',
+            'carrera_id' => 'required',
+            'profesor_id' => 'required',
 
         ]);
         $id = Materia::create($datos );
@@ -75,10 +76,13 @@ class MateriaController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Materia $materia)
+    public function edit($id)
     {
-        return view('sistema.materias.edit', compact('materia'));
+        $materias = Materia::find($id);
+        $carreras = Carrera::all();
+        $profesores = Profesor::all();
 
+        return view('sistema.materias.edit', compact('materias', 'profesores', 'carreras'));
     }
 
     /**
@@ -93,10 +97,10 @@ class MateriaController extends Controller
         $request->validate ([
             'nombre' => 'required',
             'codigo' => 'required',
-            'creditos' => 'required',
+            'creditos' => 'required | numeric | min:1 | max:5',
             'descripcion' => 'required',
-            'carrera_id' => 'nullable',
-            'profesor_id' => 'nullable',
+            'carrera_id' => 'required',
+            'profesor_id' => 'required',
         
 
         ]);
@@ -110,9 +114,9 @@ class MateriaController extends Controller
      * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Materia $materia)
+    public function destroy(Materia $materias)
     {
-        $materia->delete();
+        $materias->delete();
         return redirect()->route('materias.index');
     }
 }

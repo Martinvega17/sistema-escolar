@@ -40,8 +40,20 @@
                                     <td>{{ $materia->codigo }}</td>
                                     <td>{{ $materia->creditos }}</td>
                                     <td>{{ $materia->descripcion }}</td>
-                                    <td>{{ $materia->carrera_id }}</td>
-                                    <td>{{ $materia->profesor_id }}</td>
+                                    <td>
+                                        @if ($materia->carrera)
+                                        {{ $materia->carrera->nombre }}
+                                        @else
+                                        Sin carrera asignadas
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($materia->profesor)
+                                        {{ $materia->profesor->nombre }}
+                                        @else
+                                        Sin profesor asignado
+                                        @endif
+                                    </td>
                                     <td>
 
                                         <a href="{{ route('materias.edit', $materia->id) }}"><button

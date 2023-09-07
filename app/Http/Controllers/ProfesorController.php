@@ -133,7 +133,6 @@ class ProfesorController extends Controller
 
         /* Updating the profesor object with the new data, including materia_id, and then redirecting to the index page. */
         $profesor->update($request->all());
-
         return redirect()->route('profesor.index');
     }
 
