@@ -88,7 +88,7 @@ class CarreraController extends Controller
     {
         $request->validate ([
             'nombre' => 'required',
-            'clave' => 'required',
+            'clave' => 'required|numeric',
             'descripcion' => 'required',
         
 
