@@ -6,7 +6,7 @@
 </div>
 <div class="form-group">
     <label for="codigo">Codigo</label>
-    <input type="number" name="codigo" class="form-control" placeholder="codigo..." value="{{ old('codigo', $materias->codigo) }}">
+    <input type="text" name="codigo" class="form-control" placeholder="Codigo..." value="{{ old('codigo', $materias->codigo) }}">
 </div>
 <div class="form-group">
     <label for="creditos">Creditos</label>

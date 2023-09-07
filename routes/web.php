@@ -52,7 +52,6 @@ Route::get('/login', function () {
 
 
 
-/* Creating views routes: */
 Route::middleware('auth')->group(function () {
     Route::resource('sistema/categorias', CategoriaController::class);
     Route::resource('servicios/bar', BarController::class);
@@ -63,7 +62,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('sistema/materias', MateriaController::class);
     Route::resource('sistema/carreras', CarreraController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+
+  
 });
+
 
 
 

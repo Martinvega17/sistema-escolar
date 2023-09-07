@@ -18,7 +18,7 @@
 </div>
 <div class="form-group">
     <label for="creditos">Creditos</label>
-    <input type="text" name="creditos" class="form-control" placeholder="Creditos..." >
+    <input type="number" name="creditos" class="form-control" placeholder="Creditos..." >
 </div>
 <div class="form-group">
     <label for="descripcion">Descripcion</label>

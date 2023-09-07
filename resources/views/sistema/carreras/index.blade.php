@@ -2,8 +2,10 @@
 @section('contenido')
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            @if (auth()->user() && auth()->user()->hasRole('admin'))
             <h3>Listado de Carreras <a href="{{ route('carreras.create') }}"><button
                         class="btn btn-success">Nuevo</button></a></h3>
+            @endif
 
         </div>
 
@@ -26,9 +28,9 @@
                             <th>Clave</th>
                             <th>Descripcion</th>
                             <th>imagen</th>
-
-
+                            @if (auth()->user() && auth()->user()->hasRole('admin'))
                             <th>Opciones</th>
+                            @endif
 
                         </thead>
                         <tbody>
@@ -39,14 +41,17 @@
                                     <td>{{ $carrera->clave }}</td>
                                     <td>{{ $carrera->descripcion }}</td>
                                     <td>{{ $carrera->imagen }}</td>
-                                    <td>
-                                            
-                                        <a href="{{ route('carreras.edit', $carrera->id) }}"><button
-                                                class="btn btn-info">Editar</button></a>
-                                        <a href="{{ route('carreras.show', $carrera->id) }}"><button
-                                                class="btn btn-danger">Ver</button></a>
+                                    @if (auth()->user() &&
+                                            auth()->user()->hasRole('admin'))
+                                        <td>
 
-                                    </td>
+                                            <a href="{{ route('carreras.edit', $carrera->id) }}"><button
+                                                    class="btn btn-info">Editar</button></a>
+                                            <a href="{{ route('carreras.show', $carrera->id) }}"><button
+                                                    class="btn btn-danger">Ver</button></a>
+
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>

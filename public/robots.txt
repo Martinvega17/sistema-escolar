@@ -2,10 +2,27 @@ User-agent: *
 Disallow:
 
 Disallow: /css/
-Disallow: /imagenes/
-Disallow: /hoteles/
-Disallow: /huespedes/
-Disallow: /servicios/
-Disallow: /reservaciones/
-Disallow: /habitaciones/
+Disallow: /images/
+Disallow: /profesores/
+Disallow: /materias/
+Disallow: /carreras/
+Disallow: /admin/
+Disallow: /.env/
+Disallow: /phpmyadmin
+Disallow: /administrator/
+Disallow: /bin/
+Disallow: /cache/
+Disallow: /cli/
+Disallow: /components/
+Disallow: /contenido/
+Disallow: /dev/
+Disallow: /includes/
+Disallow: /installation/
+Disallow: /language/
+Disallow: /layouts/
+Disallow: /libraries/
+Disallow: /logs/
+Disallow: /modules/
+Disallow: /plugins/
+Disallow: /tmp/
 

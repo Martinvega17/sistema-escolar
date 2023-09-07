@@ -112,20 +112,6 @@
 
                         </li>
 
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-building"></i>
-                                <span>Hoteles</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="/sistema/categorias"><i class="fa fa-circle-o"></i> Categorias</a></li>
-                            </ul>
-                            <ul class="treeview-menu">
-                                <li><a href="/sistema/hotel"><i class="fa fa-circle-o"></i> Hoteles</a></li>
-                            </ul>
-
-                        </li>
 
                         <li class="treeview">
                             <a href="/sistema/materias">
@@ -135,30 +121,7 @@
                             </a>
 
                         </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-folder-open"></i>
-                                <span>Servicios</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="/servicios/bar"><i class="fa fa-circle-o"></i> Bar</a></li>
-                                <li><a href="/servicios/piscina"><i class="fa fa-circle-o"></i> Piscina</a></li>
-                                <li><a href="/servicios/restaurant"><i class="fa fa-circle-o"></i> Restaurante</a></li>
 
-                            </ul>
-                        </li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-line-chart"></i>
-                                <span>Reservaciones</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
-                            </ul>
-                        </li>
                         <li class="treeview">
                             <a href="/sistema/carreras">
                                 <i class="fa-solid fa-graduation-cap"></i>
