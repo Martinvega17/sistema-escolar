@@ -34,4 +34,18 @@ class ProfesorFormRequest extends FormRequest
             
         ];
     }
+
+    public function messages()
+    {
+        return [
+        'nombre' => "El nombre es requerido",
+        'cedula' => "El nombre es requerido",
+        'direccion' => "El nombre es requerido",
+        'celular' => "El nombre es requerido" ,
+        'email' => "El nombre es requerido",           
+        'experiencia' => "El nombre es requerido",
+        'fecha_contratacion' => "El nombre es requerido", 
+        
+        ];
+    }
 }

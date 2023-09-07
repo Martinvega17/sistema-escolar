@@ -47,6 +47,16 @@
     </select>
 </div>
 
+<div class="form-group">
+    <label for="carrera_id">Carrera</label>
+    <select name="carrera_id" class="form-control">
+        <option value="">Seleccione una carrera</option>
+        @foreach($carreras as $carrera)
+            <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>
+        @endforeach
+    </select>
+</div>
+
 
 
 <div class="form-group">

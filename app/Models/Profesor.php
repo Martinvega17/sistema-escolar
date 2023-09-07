@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+
 class Profesor extends Model
 {
     use HasFactory, Notifiable;
@@ -25,10 +26,22 @@ class Profesor extends Model
         'cedula',
         'experiencia',
         'fecha_contratacion',
-        'materia_id'
+        'materia_id',
+        'carrera_id',
        
     
     ];
+
+    public function materia()
+{
+    return $this->belongsTo(Materia::class, 'materia_id');
+}
+
+public function carrera()
+{
+    return $this->belongsTo(Carrera::class, 'carrera_id');
+}
+
 
     protected $guarded = [
         

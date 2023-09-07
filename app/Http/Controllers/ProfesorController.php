@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profesor;
 use App\Models\Materia;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 
 class ProfesorController extends Controller
@@ -21,9 +22,10 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        $profesores = Profesor::orderByDesc('id')->get();
+        $profesores = Profesor::with('materia', 'carrera')->orderByDesc('id')->get();
         return view('sistema.profesor.index', compact('profesores'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,9 +35,10 @@ class ProfesorController extends Controller
     public function create()
     {
         $materias = Materia::all(); // Obtén todas las materias
-        return view('sistema.profesor.create', compact('materias'));
-        // return view("sistema.profesor.create");
+        $carreras = Carrera::all(); // Obtén todas las carreras
+        return view('sistema.profesor.create', compact('materias', 'carreras'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -55,6 +58,7 @@ class ProfesorController extends Controller
             'experiencia' => 'required',
             'fecha_contratacion' => 'required',
             'materia_id' => 'required', // Asegúrate de incluir materia_id en la validación
+            'carrera_id' => 'required',
         ]);
         /* Creating a new Huesped object and then redirecting to the index page. */
         // Crear un nuevo profesor con los datos del formulario
@@ -62,6 +66,10 @@ class ProfesorController extends Controller
 
         // Guardar la relación con la materia
         $profesor->materia_id = $request->input('materia_id');
+        $profesor->save();
+
+        // Guardar la relación con la materia
+        $profesor->carrera_id = $request->input('carrera_id');
         $profesor->save();
 
         return redirect()->route('profesor.index');
@@ -92,11 +100,14 @@ class ProfesorController extends Controller
      */
     public function edit($id)
     {
-        $profesor = Profesor::find($id); // Obtén el profesor que deseas editar
-        $materias = Materia::all(); // Obtén todas las materias disponibles
+        $profesor = Profesor::find($id);
+        $carreras = Carrera::all();
+        $materias = Materia::all();
 
-        return view('sistema.profesor.edit', compact('materias', 'profesor'));
+        return view('sistema.profesor.edit', compact('materias', 'profesor', 'carreras'));
     }
+
+
 
 
     /**
@@ -114,9 +125,10 @@ class ProfesorController extends Controller
             'nombre' => 'required',
             'email' => 'required',
             'direccion' => 'required',
-            'experiencia'=> 'required',
+            'experiencia' => 'required',
             'fecha_contratacion' => 'required',
             'materia_id' => 'required',
+            'carrera_id' => 'required',
         ]);
 
         /* Updating the profesor object with the new data, including materia_id, and then redirecting to the index page. */

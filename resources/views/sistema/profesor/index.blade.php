@@ -4,15 +4,15 @@
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <h3>Listado de Profesores <a href="{{route('profesor.create')}}"><button class="btn btn-success">Nuevo</button></a></h3>
-        
+
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="table-responsive">
             <div>
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                </div>
                     </div>
+                </div>
                 <table class="table table-striped table-bordered table-condensed table-hover" id="datatable">
                     <thead>
                         <th>Id</th>
@@ -24,12 +24,12 @@
                         <th>Experiencia</th>
                         <th>Fecha de Contratacion</th>
                         <th>Materias </th>
-                        <th>Profesor </th>
-                        
+                        <th>Carreras </th>
+
                         <th>Opciones</th>
                     </thead>
                     @foreach ($profesores as $profesor)
-            {{-- YOUR CODE/TEXT HERE --}}
+                    {{-- YOUR CODE/TEXT HERE --}}
                     <tr>
                         <td>{{ $profesor->id}}</td>
                         <td>{{ $profesor->nombre}}</td>
@@ -39,27 +39,35 @@
                         <td>{{ $profesor->cedula}}</td>
                         <td>{{ $profesor->experiencia}}</td>
                         <td>{{ $profesor->fecha_contratacion}}</td>
-                        <td>{{ $profesor->materia_id }}
-                        
-                        <td>{{ $profesor->profesor_id}}</td>
-                        
-                        <td>                    
-                            <a  href="{{route('profesor.edit', $profesor->id) }}" ><button class="btn btn-info">Editar</button></a>
-                            <a  href="{{route('profesor.show', $profesor->id) }}"><button class="btn btn-danger">Ver</button></a>
+                        <td>{{ $profesor->materia->nombre }}</td>
+                        <td>
+                            @if ($profesor->carrera)
+                            {{ $profesor->carrera->nombre }}
+                            @else
+                            Sin carrera asignada
+                            @endif
+                        </td>
+
+
+
+
+                        <td>
+                            <a href="{{ route('profesor.edit', $profesor->id) }}"><button class="btn btn-info">Editar</button></a>
+                            <a href="{{route('profesor.show', $profesor->id) }}"><button class="btn btn-danger">Ver</button></a>
                         </td>
                     </tr>
                     @endforeach
-                            
+
                 </table>
                 <div class="d-flex justify-content-center">
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
     </div>
-    
+
 </div>
 @endauth
 @endsection
