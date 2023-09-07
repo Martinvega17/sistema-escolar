@@ -37,7 +37,7 @@
                         <td>{{ $profesor->telefono}}</td>
                         <td>{{ $profesor->direccion}}</td>
                         <td>{{ $profesor->cedula}}</td>
-                        <td>{{ $profesor->experiencia}}</td>
+                        <td>{{ $profesor->experiencia}} años</td>
                         <td>{{ $profesor->fecha_contratacion}}</td>
                         <td>{{ $profesor->materia->nombre }}</td>
                         <td>
