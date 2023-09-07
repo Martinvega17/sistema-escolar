@@ -39,7 +39,13 @@
                         <td>{{ $profesor->cedula}}</td>
                         <td>{{ $profesor->experiencia}} años</td>
                         <td>{{ $profesor->fecha_contratacion}}</td>
-                        <td>{{ $profesor->materia->nombre }}</td>
+                        <td>
+                            @if ($profesor->materia)
+                            {{ $profesor->materia->nombre }}
+                            @else
+                            Sin Materias asignadas
+                            @endif
+                        </td>
                         <td>
                             @if ($profesor->carrera)
                             {{ $profesor->carrera->nombre }}
