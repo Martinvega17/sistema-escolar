@@ -28,3 +28,8 @@ Route::group(['middleware' => ['role:maestro']], function () {
     // Rutas para maestro
     Route::get('sistema/carreras/edit', [App\Http\Controllers\CarreraController::class, 'edit'])->name('sistema.carreras.edit');
 });
+
+
+Route::group(['middleware' => ['role:maestro']], function () {
+    // Rutas para maestro
+});

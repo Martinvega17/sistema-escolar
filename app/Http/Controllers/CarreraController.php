@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Carrera;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class CarreraController extends Controller
         $this->middleware('auth', ['except' => ['index']]);
         $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -41,14 +42,14 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        $datos = $request->validate ([
+        $datos = $request->validate([
             'nombre' => 'required',
             'clave' => 'required',
             'descripcion' => 'required',
             'imagen' => 'nullable',
-         
+
         ]);
-        $id = Carrera::create($datos );
+        $id = Carrera::create($datos);
         return redirect()->route('carreras.index');
     }
 
@@ -60,11 +61,10 @@ class CarreraController extends Controller
      */
     public function show(Carrera $carrera)
     {
-        return view("sistema.carreras.show",['carrera'=>$carrera]);
-
+        return view("sistema.carreras.show", ['carrera' => $carrera]);
     }
 
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -74,7 +74,6 @@ class CarreraController extends Controller
     public function edit(Carrera $carrera)
     {
         return view('sistema.carreras.edit', compact('carrera'));
-
     }
 
     /**
@@ -86,11 +85,11 @@ class CarreraController extends Controller
      */
     public function update(Request $request, Carrera $carrera)
     {
-        $request->validate ([
+        $request->validate([
             'nombre' => 'required',
             'clave' => 'required|numeric',
             'descripcion' => 'required',
-        
+
 
         ]);
         $carrera->update($request->all());

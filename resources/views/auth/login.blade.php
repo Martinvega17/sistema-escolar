@@ -13,6 +13,7 @@
           <input type="password" name="password" placeholder="contraseña">
           <button>Iniciar sesion</button>
           <p class="count">¿No tienes cuenta? <a class="link" href="/register">Registrate</a></p>
+          <p class="count">¿No tienes cuenta? <a class="link" href="{{ route('password.request') }}">Olvidaste tu contraseña?</a></p>
         </form>
       </div>
      
