@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\BarController;
-use App\Http\Controllers\RestaurantController;
-use App\Http\Controllers\PiscinaController;
-use App\Http\Controllers\HotelController;
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CarreraController;
@@ -53,6 +49,7 @@ Route::get('/login', function () {
 
 
 Route::middleware('auth')->group(function () {
+    Route::resource('sistema/alumno', AlumnoController::class);
     Route::resource('sistema/profesor', ProfesorController::class);
     Route::resource('sistema/materias', MateriaController::class);
     Route::resource('sistema/carreras', CarreraController::class);

@@ -109,15 +109,6 @@ class ProfesorController extends Controller
 
 
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Huesped  $huesped
-     * @return \Illuminate\Http\Response
-     */
-
     public function update(Request $request, Profesor $profesor)
     {
         /* Validating the data that is being sent to the database. */
