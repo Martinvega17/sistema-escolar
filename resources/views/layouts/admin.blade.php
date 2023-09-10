@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -206,3 +206,4 @@
     <script type="text/javascript" src="{{asset('https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js')}}"></script>
   </body>
 </html>
+ --}}

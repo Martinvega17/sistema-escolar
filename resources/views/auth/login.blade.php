@@ -16,6 +16,7 @@
           <p class="count">¿No tienes cuenta? <a class="link" href="{{ route('password.request') }}">Olvidaste tu contraseña?</a></p>
         </form>
       </div>
+</form>
      
-      </div>
+      
 @endsection
