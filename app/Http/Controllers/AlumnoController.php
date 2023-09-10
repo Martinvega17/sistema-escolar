@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('role:admin')->only(['create', 'store', 'edit', 'update', 'show', 'destroy']);
+
+    }
     /**
      * Display a listing of the resource.
      *

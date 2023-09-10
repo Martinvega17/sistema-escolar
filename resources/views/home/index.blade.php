@@ -134,7 +134,7 @@
                             </a>
 
                         </li>
-                        @role('admin|maestro')
+                        @role('admin')
                         <li class="treeview">
                             <a href="/sistema/carreras">
                                 <i class="fa-solid fa-graduation-cap"></i>
