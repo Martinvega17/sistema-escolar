@@ -21,7 +21,7 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        $materias = Materia::with('carrera', 'profesor')->orderByDesc('id')->get();
+        $materias = Materia::with('carrera', 'profesor')->orderBy('id')->get();
         return view('sistema.materias.index', compact('materias'));
     }
 

@@ -53,17 +53,11 @@ Route::get('/login', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::resource('sistema/categorias', CategoriaController::class);
-    Route::resource('servicios/bar', BarController::class);
-    Route::resource('servicios/restaurant', RestaurantController::class);
-    Route::resource('servicios/piscina', PiscinaController::class);
-    Route::resource('sistema/hotel', HotelController::class);
     Route::resource('sistema/profesor', ProfesorController::class);
     Route::resource('sistema/materias', MateriaController::class);
     Route::resource('sistema/carreras', CarreraController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 
-  
 });
 
 

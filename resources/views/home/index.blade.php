@@ -103,6 +103,7 @@
                             </a>
 
                         </li>
+                        @role('admin')
                         <li class="treeview">
                             <a href="/sistema/profesor">
                                 <i class="fa fa-user-plus"></i>
@@ -111,6 +112,18 @@
                             </a>
 
                         </li>
+                        @endrole
+
+                        @role('admin|maestro')
+                        <li class="treeview">
+                            <a href="/sistema/alumno">
+                                <i class="fa fa-user-plus"></i>
+                                <span>Alumnos</span>
+                                
+                            </a>
+
+                        </li>
+                        @endrole
 
 
                         <li class="treeview">
@@ -121,7 +134,7 @@
                             </a>
 
                         </li>
-
+                        @role('admin|maestro')
                         <li class="treeview">
                             <a href="/sistema/carreras">
                                 <i class="fa-solid fa-graduation-cap"></i>
@@ -130,6 +143,7 @@
                             </a>
 
                         </li>
+                        @endrole
 
                         <li class="treeview">
                             <a href="/logout">
