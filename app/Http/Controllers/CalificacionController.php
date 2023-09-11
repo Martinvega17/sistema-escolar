@@ -16,6 +16,8 @@ class CalificacionController extends Controller
     {
         $this->middleware('auth', ['except' => ['index']]);
 
+        
+
     }
     /**
      * Display a listing of the resource.

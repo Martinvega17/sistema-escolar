@@ -67,7 +67,7 @@
     </div>
 
     </div>
-    <div class="row">
+{{--     <div class="row">
         <div class="col-sm-12">
             <form action="{{ route('calificacion.destroy', $calificacion) }}" method="POST">
                 @csrf
@@ -77,5 +77,5 @@
                 </button>
             </form>
         </div>
-    </div>
+    </div> --}}
 @endsection

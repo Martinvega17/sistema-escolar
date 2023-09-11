@@ -72,8 +72,9 @@ Route::middleware('role:admin|maestro')->group(function () {
     Route::resource('sistema/materias', MateriaController::class);
     Route::resource('sistema/calificacion', CalificacionController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
-
 });
+
+
 
 
 //Password reset routes
