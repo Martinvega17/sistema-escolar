@@ -21,6 +21,7 @@
                         <th>Nombres</th>
                         <th>Email</th>
                         <th>Matricula</th>
+                        @if (auth()->user()->hasRole('admin'))
                         <th>Direccion</th>
                         <th>Telefono</th>
                         <th>Semestre</th>
@@ -34,6 +35,7 @@
                         <th>Foto </th>
                         <th>Carrera </th>
                         <th>Materias </th>
+                        @endif
 
                         @if (auth()->user() && auth()->user()->hasRole('admin'))
                         <th>Opciones</th>
@@ -46,6 +48,7 @@
                         <td>{{ $alumno->nombre}}</td>
                         <td>{{ $alumno->email}}</td>
                         <td>{{ $alumno->matricula}}</td>
+                        @if (auth()->user()->hasRole('admin'))
                         <td>{{ $alumno->direccion}}</td>
                         <td>{{ $alumno->telefono}}</td>
                         <td>{{ $alumno->semestre}}</td>
@@ -75,6 +78,7 @@
                             Sin Materias asignadas
                             @endif
                         </td>
+                        @endif
 
                         @if (auth()->user() && auth()->user()->hasRole('admin'))
                         <td>

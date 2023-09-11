@@ -5,6 +5,7 @@ use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\ProfesorController;
 use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\CarreraController;
+use App\Http\Controllers\CalificacionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
@@ -69,6 +70,7 @@ Route::middleware('role:admin')->group(function () {
 Route::middleware('role:admin|maestro')->group(function () {
     Route::resource('sistema/alumno', AlumnoController::class);
     Route::resource('sistema/materias', MateriaController::class);
+    Route::resource('sistema/calificacion', CalificacionController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 
 });

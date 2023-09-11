@@ -88,7 +88,7 @@
                         <a href="/">
                             <i class="fa fa-home"></i>
                             <span>Inicio</span>
-                            <i class="fa fa-angle-left pull-right"></i>
+                            
                         </a>
 
                     </li>
@@ -99,7 +99,7 @@
                             <a href="#">
                                 <i class="fa fa-user"></i>
                                 <span>Usuarios</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                
                             </a>
 
                         </li>
@@ -130,7 +130,7 @@
                             <a href="/sistema/materias">
                                 <i class="fa-solid fa-book"></i>
                                 <span>Materias</span>
-                                <i class="fa fa-angle-left pull-right"></i>
+                                
                             </a>
 
                         </li>
@@ -144,6 +144,15 @@
 
                         </li>
                         @endrole
+
+                        <li class="treeview">
+                            <a href="/sistema/calificacion">
+                                <i class="fa-solid fa-chalkboard"></i>
+                                <span>Calificaciones</span>
+                                
+                            </a>
+
+                        </li>
 
                         <li class="treeview">
                             <a href="/logout">
