@@ -67,10 +67,7 @@
     <textarea name="observaciones" class="form-control" placeholder="Observaciones...">{{ old('observaciones', $alumno->observaciones) }}</textarea>
 </div>
 
-<div class="form-group">
-    <label for="foto">Foto</label>
-    <input type="file" name="foto" class="form-control" placeholder="Foto..." value="{{ old('foto', $alumno->foto) }}">
-</div>
+
 
 
 

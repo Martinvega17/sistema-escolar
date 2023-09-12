@@ -32,7 +32,7 @@
                         <th>Fecha de Ingreso </th>
                         <th>Status </th>
                         <th>Observaciones </th>
-                        <th>Foto </th>
+                        {{-- <th>Foto </th> --}}
                         <th>Carrera </th>
                         <th>Materias </th>
                         @endif
@@ -59,10 +59,10 @@
                         <td>{{ $alumno->fecha_ingreso}}</td>
                         <td>{{ $alumno->estatus}}</td>
                         <td>{{ $alumno->observaciones}}</td>
-                        <td>
-                            {{-- <img src="{{asset('assets/img/alumnos/'.$alumno->foto)}}" alt="{{ $alumno->nombre}}" height="100px" width="100px" class="img-thumbnail"> --}}
+                        {{-- <img src="{{asset('assets/img/alumnos/'.$alumno->foto)}}" alt="{{ $alumno->nombre}}" height="100px" width="100px" class="img-thumbnail"> --}}
+                        {{-- <td>
                             {{ $alumno->foto}}
-                        </td>
+                        </td> --}}
                         <td>
                             @if ($alumno->carrera)
                             {{ $alumno->carrera->nombre }}

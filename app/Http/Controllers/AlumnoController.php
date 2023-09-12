@@ -62,7 +62,7 @@ class AlumnoController extends Controller
             'fecha_ingreso' => 'required',
             'estatus' => 'nullable',
             'observaciones' => 'nullable',
-            'foto' => 'nullable',
+
             'materia_id' => 'required', // Asegúrate de incluir materia_id en la validación
             'carrera_id' => 'required',
         ]);
@@ -132,7 +132,7 @@ class AlumnoController extends Controller
             'fecha_ingreso' => 'required',
             'estatus' => 'nullable',
             'observaciones' => 'nullable',
-            'foto' => 'nullable',
+
             'materia_id' => 'required',
             'carrera_id' => 'required',
         ]);
