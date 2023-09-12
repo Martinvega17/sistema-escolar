@@ -73,10 +73,10 @@
 
 
 
-                        @if (auth()->user() && auth()->user()->hasRole('admin'))
+                        @if (auth()->user() && auth()->user()->hasRole('admin|maestro'))
                         <td>
                             <a href="{{ route('calificacion.edit', $calificacion->id) }}"><button class="btn btn-info">Editar</button></a>
-                            <a href="{{route('calificacion.show', $calificacion->id) }}"><button class="btn btn-danger">Ver</button></a>
+                            
                         </td>
                         @endif
                     </tr>

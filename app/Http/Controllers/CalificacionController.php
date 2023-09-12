@@ -89,9 +89,9 @@ class CalificacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Calificacion $calificacion)
+    public function show()
     {
-        return view("sistema.calificacion.show", ['calificacion' => $calificacion]);
+        //
     }
 
     /**
@@ -141,11 +141,8 @@ class CalificacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Calificacion $calificacion)
+    public function destroy()
     {
-        $calificacion->delete();
-
-        return redirect()->route('calificacion.index')
-            ->with('success', 'Calificacion eliminada correctamente.');
+        //
     }
 }

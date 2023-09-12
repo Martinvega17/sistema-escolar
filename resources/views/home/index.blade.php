@@ -123,9 +123,9 @@
                             </a>
 
                         </li>
-                        @endrole
+                        
 
-
+                        
                         <li class="treeview">
                             <a href="/sistema/materias">
                                 <i class="fa-solid fa-book"></i>
@@ -134,6 +134,7 @@
                             </a>
 
                         </li>
+                        @endrole
                         @role('admin')
                         <li class="treeview">
                             <a href="/sistema/carreras">

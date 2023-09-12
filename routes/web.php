@@ -74,6 +74,11 @@ Route::middleware('role:admin|maestro')->group(function () {
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
 });
 
+Route::middleware('role:admin|alumno|maestro')->group(function () {
+    Route::resource('sistema/calificacion', CalificacionController::class);
+    Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+});
+
 
 
 
