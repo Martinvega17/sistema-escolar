@@ -8,7 +8,7 @@ Disallow: /materias/
 Disallow: /carreras/
 Disallow: /admin/
 Disallow: /.env/
-Disallow: /phpmyadmin
+Disallow: /phpmyadmin/
 Disallow: /administrator/
 Disallow: /bin/
 Disallow: /cache/
@@ -18,7 +18,7 @@ Disallow: /contenido/
 Disallow: /dev/
 Disallow: /includes/
 Disallow: /installation/
-Disallow: /language/
+Disallow: /lang/
 Disallow: /layouts/
 Disallow: /libraries/
 Disallow: /logs/

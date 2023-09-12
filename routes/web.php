@@ -29,9 +29,9 @@ Route::get('/', function () {
 });
 
 // Login routes
-Route::get('/register',  [RegisterController::class, 'show']);
+// Route::get('/register',  [RegisterController::class, 'show']);
 
-Route::post('/register', [RegisterController::class, 'register']);
+// Route::post('/register', [RegisterController::class, 'register']);
 
 Route::get('/login',  [LoginController::class, 'show']);
 
@@ -89,5 +89,5 @@ Route::post('password/email', [App\Http\Controllers\Auth\ForgotPasswordControlle
 Route::get('password/reset/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
 
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';
