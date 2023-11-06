@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('cedula');
             $table->integer('experiencia');
             $table->date('fecha_contratacion');
+            
             $table->unsignedInteger('materia_id'); // Materia que imparte el profesor
             $table->foreign('materia_id')
                 ->references('id')->on('materias')
